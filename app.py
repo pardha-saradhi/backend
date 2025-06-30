@@ -7,7 +7,7 @@ import os
 from waitress import serve
 
 app = Flask(__name__)
-CORS(app, resources={r"/send-email": {"origins": "https://frontend-b2bfpjw6h-frontends-projects-1701b574.vercel.app"}})
+CORS(app, resources={r"/send-email": {"origins": "https://frontend-b2bfpjw6h-frontends-projects-1701b574.vercel.app"=True}})
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
