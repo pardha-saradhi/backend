@@ -81,6 +81,10 @@ def send_email():
         return jsonify({'status': 'success'})
     except Exception as e:
         return jsonify({'status': 'error', 'error': str(e)}), 500
+@app.route('/')
+def health():
+    return "Backend is alive!"
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
