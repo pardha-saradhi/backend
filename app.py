@@ -7,7 +7,7 @@ import os
 from waitress import serve
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/send-email": {"origins": "*"}})
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
