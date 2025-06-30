@@ -3,6 +3,8 @@ from flask_cors import CORS
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import os
+from waitress import serve
 
 app = Flask(__name__)
 CORS(app)
@@ -81,4 +83,6 @@ def send_email():
         return jsonify({'status': 'error', 'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    serve(app, host='0.0.0.0', port=port)
+
